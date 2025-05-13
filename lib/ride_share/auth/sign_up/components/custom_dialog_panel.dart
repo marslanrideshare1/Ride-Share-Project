@@ -4,6 +4,8 @@ import '../../../../core/theme/components/rs_color.dart';
 import '../../../../widgets/custom_button.dart';
 customDialogPanel(context, TextEditingController panelController,Function() onClickSubmit){
   String? selectedOption;
+  bool showDeveloperOption=false;
+  int showDeveloperOptionCount=0;
   return showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -42,6 +44,40 @@ customDialogPanel(context, TextEditingController panelController,Function() onCl
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall),
+                        ),
+                        Visibility(
+                          visible: showDeveloperOption,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 10),
+                            child: ListTile(
+                              contentPadding: EdgeInsets.zero,
+                              dense: true,
+                              visualDensity:
+                              VisualDensity.compact,
+                              title: Text("Developer",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                      fontWeight:
+                                      FontWeight
+                                          .bold)),
+                              trailing: Radio<String>(
+                                materialTapTargetSize:
+                                MaterialTapTargetSize
+                                    .shrinkWrap,
+                                value: "Developer",
+                                overlayColor: MaterialStateProperty.all(RsColor.primarySecond.withOpacity(0.5)),
+                                fillColor: MaterialStateProperty.all(RsColor.primarySecond),
+                                groupValue: selectedOption,
+                                onChanged: (String? value) {
+                                  setState(() =>
+                                  selectedOption = value);
+                                },
+                              ),
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -115,10 +151,22 @@ customDialogPanel(context, TextEditingController panelController,Function() onCl
                               top: 5),
                           child: CustomButton(
                             text: "OKK",
+                            onLongPress: (){
+                              setState((){
+                                showDeveloperOption = true;
+                              });
+                            },
                             textStyle: Theme.of(context)
                                 .textTheme
                                 .headlineSmall,
                             onPressed: () {
+                              showDeveloperOptionCount ++;
+                              if(showDeveloperOptionCount > 4){
+                                showDeveloperOptionCount = 0;
+                                setState((){
+                                  showDeveloperOption = true;
+                                });
+                              }
                               if (selectedOption != null) {
                                 panelController.text = selectedOption!;
                                 onClickSubmit();

@@ -158,7 +158,7 @@ class SignUpValidateController extends GetxController{
     return vehicleChassisNoValidate.value.isEmpty ? null : vehicleChassisNoValidate.value;
   }
   // Clear specific error message when user moves to the next field
-  void clearError(String fieldName) {
+   clearError(String fieldName) {
     switch (fieldName) {
       case 'userNameValidate':
         userNameValidate.value = "";

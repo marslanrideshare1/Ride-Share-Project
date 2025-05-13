@@ -77,6 +77,9 @@ class RsTheme {
     brightness: Brightness.light,
     fontFamily: "UberMove",
     scaffoldBackgroundColor: RsColor.white,
+      // Color(0xff2B2D31)
+    // primaryColorDark:Color(0xff121212),
+
     cardColor: RsColor.black,
     primaryColor: RsColor.primaryFirst,
     textTheme: RsTextTheme.rideShareLightTextTheme,
@@ -88,6 +91,7 @@ class RsTheme {
       primary: RsColor.primaryFirst,
       onPrimary: RsColor.black,
       primaryContainer: RsColor.primarySecond,
+      onPrimaryContainer: Color(0xffEEEEEE),
       secondary: RsColor.primaryThird,
       onSecondary: RsColor.white,
       error: RsColor.redMain,
@@ -112,8 +116,7 @@ class RsTheme {
       thickness: 1,
       space: 1,
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
+    inputDecorationTheme: InputDecorationTheme(filled: true,
       fillColor: RsColor.lightWhite,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
@@ -167,6 +170,7 @@ class RsTheme {
     brightness: Brightness.dark,
     fontFamily: "UberMove",
     scaffoldBackgroundColor: RsColor.black,
+    // primaryColorDark:Color(0xff121212),
     primaryColor: RsColor.primaryFirst,
     cardColor: RsColor.blackWithOpacity,
     textTheme: RsTextTheme.rideShareDarkTextTheme,
@@ -178,6 +182,7 @@ class RsTheme {
       primary: RsColor.primaryFirst,
       onPrimary: RsColor.white,
       primaryContainer: RsColor.primarySecond,
+      onPrimaryContainer: Color(0xff121212),
       secondary: RsColor.primaryThird,
       onSecondary: RsColor.white,
       error: RsColor.redMain,

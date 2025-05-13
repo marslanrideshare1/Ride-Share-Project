@@ -1,7 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ride_share/ride_share/developer/dev_main_view.dart';
+import 'package:ride_share/ride_share/driver/driver_main_view.dart';
+import 'package:ride_share/ride_share/passenger/passenger_main_view.dart';
+import 'package:ride_share/ride_share/wrapper/splash/splash_controller.dart';
 
-class SplashView extends StatelessWidget {
-  const SplashView({super.key});
+import '../on_board/on_board_view.dart';
+
+class SplashView extends StatefulWidget {
+   SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  User? user = FirebaseAuth.instance.currentUser;
+  final SplashController splashController = Get.put(SplashController());
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 5), ()=> wrapper());
+  }
+
+  Future<void> wrapper() async {
+   await splashController.getUserData();
+  }
 
   @override
   Widget build(BuildContext context) {

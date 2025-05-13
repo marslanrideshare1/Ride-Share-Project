@@ -2,22 +2,18 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../user/user_model.dart';
 
 class SignUpController extends GetxController {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
-  RxBool _isLoading = false.obs;
-  RxBool get isLoading => _isLoading;
-  set setterIsLoading(bool isLoad){
-    _isLoading = isLoad.obs;
-  }
+  final _isLoading = RxBool(false);
+  bool get isLoading => _isLoading.value;
+  set setIsLoading(bool value) => _isLoading.value = value;
 
-  final RxBool isPasswordVisible = false.obs;
+  final isPasswordVisibleForRegister = RxBool(true);
 
   Future<UserCredential?> signUpMethod(
     String userName,
@@ -32,7 +28,7 @@ class SignUpController extends GetxController {
     String userDeviceToken,
   ) async {
     try {
-      setterIsLoading = true;
+      setIsLoading = true;
       UserCredential userCredential =
           await firebaseAuth.createUserWithEmailAndPassword(
         email: userEmail,
@@ -43,7 +39,7 @@ class SignUpController extends GetxController {
       await userCredential.user!.sendEmailVerification();
 
       UserModel userModel = UserModel(
-          uId: userCredential.user!.uid,
+          uId: userCredential.user!.uid.toString(),
           username: userName.toString(),
           email: userEmail.toString(),
           idCardNo: userIdCardNo.toString(),
@@ -61,17 +57,16 @@ class SignUpController extends GetxController {
           isActive: true,
           createdAt: DateTime.now(),
       );
-
-      // add data into database
-      firebaseFirestore
+      print("user json "+userModel.toMap().toString());
+      await firebaseFirestore
           .collection('user_register')
           .doc(userCredential.user!.uid)
           .set(userModel.toMap());
-      setterIsLoading = false;
+      setIsLoading = false;
       return userCredential;
     } on FirebaseAuthException catch (e) {
       // Handle Firebase authentication-related errors
-      setterIsLoading = false;
+      setIsLoading = false;
       switch (e.code) {
         case 'email-already-in-use':
            'This email address is already in use. Please try logging in or use a different email.';
@@ -94,7 +89,7 @@ class SignUpController extends GetxController {
       }
     } on FirebaseException catch(e){
       // Handle PlatformException
-      setterIsLoading = false;
+      setIsLoading = false;
       if (e.code == 'ERROR_INVALID_CREDENTIAL') {
          'The supplied auth credential is incorrect, malformed, or expired.';
       }
@@ -105,7 +100,7 @@ class SignUpController extends GetxController {
       }
     }catch (e) {
       // Catch any other types of exceptions and return a general error message
-      setterIsLoading = false;
+      setIsLoading = false;
       'An unknown error occurred: ${e.toString()}';
     }
   }

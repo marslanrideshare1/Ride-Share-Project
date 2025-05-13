@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:ride_share/dummy.dart';
+import 'package:ride_share/ride_share/auth/sign_in/components/forget_password_view.dart';
 import 'package:ride_share/ride_share/auth/sign_in/sign_in_view.dart';
 import 'package:ride_share/ride_share/auth/sign_up/sign_up_view.dart';
 import 'package:ride_share/ride_share/wrapper/on_board/on_board_view.dart';
@@ -12,8 +13,10 @@ import 'package:ride_share/ride_share/wrapper/splash/splash_view.dart';
 import 'package:ride_share/widgets/custom_social_button.dart';
 import 'core/theme/rs_theme.dart';
 import 'firebase_options.dart';
+import 'local/local_storage.dart';
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorage.init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
   //   DevicePreview(
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: RsTheme.rideShareLightTheme,
       darkTheme: RsTheme.rideShareDarkTheme,
-      home: SignUpView(),
+      home: SplashView(),
     );
   }
 }

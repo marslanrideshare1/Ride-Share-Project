@@ -1,8 +1,8 @@
-enum UserRole { Driver, Passenger }
+enum UserRole { Driver, Passenger,Developer }
 enum UserRequest { Pending, Approved }
 UserRole userRoleFromString(String roleString) {
    return UserRole.values.firstWhere(
-          (role) => role.toString().split('.').last == roleString.toLowerCase(),
+          (role) => role.name.toString().toLowerCase() == roleString.toLowerCase(),
       orElse: () => UserRole.Passenger, // default value if not found
    );
 }
@@ -65,7 +65,7 @@ class UserModel {
          'role': role.name,
          'requestStatus': requestStatus.name, // Added to map
          'isActive': isActive,
-         'createdAt': createdAt,
+         'createdAt': createdAt.toString(),
       };
    }
 

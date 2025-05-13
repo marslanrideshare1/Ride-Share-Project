@@ -21,6 +21,8 @@ class CustomButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final BoxConstraints? constraints;
   final bool fullWidth;
+  final bool isLoading;
+  final void Function()? onLongPress;
 
   const CustomButton({
     super.key,
@@ -42,6 +44,8 @@ class CustomButton extends StatelessWidget {
     this.padding,
     this.constraints,
     this.fullWidth = false, // New parameter to control full width behavior
+    this.isLoading = false,
+    this.onLongPress,
   });
 
   @override
@@ -94,6 +98,7 @@ class CustomButton extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             borderRadius: BorderRadius.circular(borderRadius),
+            onLongPress: onLongPress,
             onTap: isDisabled ? null : onPressed,
             child: Padding(
               padding: padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -107,7 +112,9 @@ class CustomButton extends StatelessWidget {
                   ],
                   SizedBox(width: 10,),
                   Flexible(
-                    child: Text(
+                    child:  isLoading == true ? CircularProgressIndicator(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ) : Text(
                       text,
                       style: (textStyle ?? Theme.of(context).textTheme.bodyMedium)?.copyWith(
                         color: textColor,
