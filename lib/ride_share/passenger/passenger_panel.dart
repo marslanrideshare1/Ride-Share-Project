@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PassengerMainView extends StatelessWidget {
-  const PassengerMainView({super.key});
+class PassengerPanel extends StatelessWidget {
+  const PassengerPanel({super.key});
 
   @override
   Widget build(BuildContext context) {

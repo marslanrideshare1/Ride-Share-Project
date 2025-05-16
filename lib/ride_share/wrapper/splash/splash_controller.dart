@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 import 'package:ride_share/dashboard/screens/main/main_screen.dart';
 import 'package:ride_share/local/local_storage.dart';
 import 'package:ride_share/ride_share/auth/user/user_model.dart';
-import 'package:ride_share/ride_share/driver/driver_main_view.dart';
-import 'package:ride_share/ride_share/passenger/passenger_main_view.dart';
+import 'package:ride_share/ride_share/driver/driver_panel.dart';
+import 'package:ride_share/ride_share/passenger/passenger_panel.dart';
 import 'package:ride_share/ride_share/wrapper/on_board/on_board_view.dart';
 
-import '../../developer/dev_main_view.dart';
+import '../../developer/developer_panel.dart';
 
 class SplashController extends GetxController {
   getUserData()async{
@@ -19,9 +19,9 @@ class SplashController extends GetxController {
    if(user.isNotEmpty){
      UserModel userModel=UserModel.fromMap(jsonDecode(user));
      if(userModel.role==UserRole.Developer){
-       Get.offAll(() => DevMainView());
+       Get.offAll(() => DeveloperPanel());
      }else if(userModel.role == UserRole.Driver){
-       Get.offAll(() => DriverMainView());
+       Get.offAll(() => DriverPanel());
      }else if(userModel.role == UserRole.Passenger){
        Get.offAll(() => MainScreen());
 

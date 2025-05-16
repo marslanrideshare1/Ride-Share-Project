@@ -91,7 +91,7 @@ class RsTheme {
       primary: RsColor.primaryFirst,
       onPrimary: RsColor.black,
       primaryContainer: RsColor.primarySecond,
-      onPrimaryContainer: Color(0xffEEEEEE),
+      onPrimaryContainer: Color(0xffE0E0E0),
       secondary: RsColor.primaryThird,
       onSecondary: RsColor.white,
       error: RsColor.redMain,
@@ -120,11 +120,11 @@ class RsTheme {
       fillColor: RsColor.lightWhite,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: RsColor.border),
+        borderSide: BorderSide(color: RsColor.trans),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: RsColor.border),
+        borderSide: BorderSide(color: RsColor.trans),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
@@ -182,7 +182,7 @@ class RsTheme {
       primary: RsColor.primaryFirst,
       onPrimary: RsColor.white,
       primaryContainer: RsColor.primarySecond,
-      onPrimaryContainer: Color(0xff121212),
+      onPrimaryContainer: Color(0xff1A1A1A),
       secondary: RsColor.primaryThird,
       onSecondary: RsColor.white,
       error: RsColor.redMain,
@@ -212,11 +212,11 @@ class RsTheme {
       fillColor: RsColor.blueBold,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: RsColor.greyDarkBorder),
+        borderSide: BorderSide(color: RsColor.trans),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: RsColor.greyDarkBorder),
+        borderSide: BorderSide(color: RsColor.trans),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),

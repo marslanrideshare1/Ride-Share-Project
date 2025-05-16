@@ -12,9 +12,9 @@ import 'package:ride_share/ride_share/auth/sign_in/sign_in_controller.dart';
 import 'package:ride_share/ride_share/auth/sign_up/components/sign_up_validate_controller.dart';
 import 'package:ride_share/ride_share/auth/sign_up/sign_up_view.dart';
 import 'package:ride_share/ride_share/auth/user/user_model.dart';
-import 'package:ride_share/ride_share/developer/dev_main_view.dart';
-import 'package:ride_share/ride_share/driver/driver_main_view.dart';
-import 'package:ride_share/ride_share/passenger/passenger_main_view.dart';
+import 'package:ride_share/ride_share/developer/developer_panel.dart';
+import 'package:ride_share/ride_share/driver/driver_panel.dart';
+import 'package:ride_share/ride_share/passenger/passenger_panel.dart';
 import 'package:ride_share/ride_share/wrapper/on_board/on_board_view.dart';
 import 'package:ride_share/widgets/custom_button.dart';
 import 'package:ride_share/widgets/custom_divider_row.dart';
@@ -232,9 +232,9 @@ class _SignInViewState extends State<SignInView> {
                                   await LocalStorage.setData("userData", userJson);
 
                                   if(userModel.role == UserRole.Developer){
-                                    Get.to(DevMainView());
+                                    Get.to(DeveloperPanel());
                                   }else if(userModel.role == UserRole.Driver){
-                                    Get.to(DriverMainView());
+                                    Get.to(DriverPanel());
                                   }else if(userModel.role == UserRole.Passenger){
                                     Get.to(MainScreen());
                                   }else{

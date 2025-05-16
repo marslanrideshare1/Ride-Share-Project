@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ride_share/ride_share/developer/dev_main_view.dart';
-import 'package:ride_share/ride_share/driver/driver_main_view.dart';
-import 'package:ride_share/ride_share/passenger/passenger_main_view.dart';
+import 'package:ride_share/ride_share/developer/developer_panel.dart';
+import 'package:ride_share/ride_share/driver/driver_panel.dart';
+import 'package:ride_share/ride_share/passenger/passenger_panel.dart';
 import 'package:ride_share/ride_share/wrapper/splash/splash_controller.dart';
 
 import '../on_board/on_board_view.dart';
@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 5), ()=> wrapper());
+    Future.delayed(Duration(seconds: 1), ()=> wrapper());
   }
 
   Future<void> wrapper() async {

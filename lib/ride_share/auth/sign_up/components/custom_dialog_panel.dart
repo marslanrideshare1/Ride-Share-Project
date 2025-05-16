@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/theme/components/rs_color.dart';
 import '../../../../widgets/custom_button.dart';
 customDialogPanel(context, TextEditingController panelController,Function() onClickSubmit){

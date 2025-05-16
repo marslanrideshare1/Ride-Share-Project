@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ride_share/core/theme/components/rs_color.dart';
 
 import '../../../constants.dart';
 import '../../../models/my_files.dart';
@@ -25,14 +26,14 @@ class MyFiles extends StatelessWidget {
             ElevatedButton.icon(
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
-                  horizontal: defaultPadding * 1.5,
+                  horizontal: defaultPadding * 0.5,
                   vertical:
                       defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
                 ),
               ),
               onPressed: () {},
               icon: Icon(Icons.add),
-              label: Text("Add New"),
+              label: Text("Add New", style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold)),
             ),
           ],
         ),

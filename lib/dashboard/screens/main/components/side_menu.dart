@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ride_share/core/theme/components/rs_color.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -9,10 +10,13 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+      elevation: 50,
+      shadowColor: RsColor.primaryFirst,
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("assets/images/logo.png", color: Theme.of(context).colorScheme.onPrimary,),
           ),
           DrawerListTile(
             title: "Dashboard",
@@ -79,12 +83,12 @@ class DrawerListTile extends StatelessWidget {
       horizontalTitleGap: 0.0,
       leading: SvgPicture.asset(
         svgSrc,
-        colorFilter: ColorFilter.mode(Colors.white54, BlendMode.srcIn),
+        colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.onPrimary, BlendMode.srcIn),
         height: 16,
       ),
       title: Text(
         title,
-        style: TextStyle(color: Colors.white54),
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }

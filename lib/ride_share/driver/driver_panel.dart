@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DriverMainView extends StatelessWidget {
-  const DriverMainView({super.key});
+class DriverPanel extends StatelessWidget {
+  const DriverPanel({super.key});
 
   @override
   Widget build(BuildContext context) {

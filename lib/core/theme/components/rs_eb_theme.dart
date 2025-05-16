@@ -12,10 +12,11 @@ class RsEbTheme{
       backgroundColor: RsColor.primaryFirst,
       disabledForegroundColor: RsColor.grey,
       disabledBackgroundColor: RsColor.grey,
-      side:  BorderSide(color: RsColor.primarySecond),
+      side:  BorderSide(color: RsColor.blackWithOpacity),
       padding: EdgeInsets.symmetric(vertical: 10),
-      textStyle: TextStyle(color: RsColor.white, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: ""),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+      iconColor: RsColor.black,
+      textStyle: TextStyle(color: RsColor.black, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: ""),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
     ),
   );
 
@@ -27,10 +28,11 @@ class RsEbTheme{
       backgroundColor: RsColor.primaryFirst,
       disabledForegroundColor: RsColor.grey,
       disabledBackgroundColor: RsColor.grey,
-      side:  BorderSide(color: RsColor.primarySecond),
+      side:  BorderSide(color: RsColor.whiteWithOpacity),
+      iconColor: RsColor.white,
       padding: EdgeInsets.symmetric(vertical: 10),
       textStyle: TextStyle(color: RsColor.white, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: ""),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
     ),
   );
 }

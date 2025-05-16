@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ride_share/core/theme/components/rs_color.dart';
 
 import '../../../constants.dart';
 
 class StorageInfoCard extends StatelessWidget {
   const StorageInfoCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.svgSrc,
     required this.amountOfFiles,
     required this.numOfFiles,
-  }) : super(key: key);
+  });
 
   final String title, svgSrc, amountOfFiles;
-  final int numOfFiles;
+  final String numOfFiles;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class StorageInfoCard extends StatelessWidget {
       margin: EdgeInsets.only(top: defaultPadding),
       padding: EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
-        border: Border.all(width: 2, color: primaryColor.withOpacity(0.15)),
+        border: Border.all(width: 1, color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.6)),
         borderRadius: const BorderRadius.all(
           Radius.circular(defaultPadding),
         ),
@@ -43,19 +44,20 @@ class StorageInfoCard extends StatelessWidget {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 10,fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "$numOfFiles Files",
+                    numOfFiles,
+
                     style: Theme.of(context)
                         .textTheme
-                        .bodySmall!
-                        .copyWith(color: Colors.white70),
+                        .bodySmall!.copyWith(fontSize: 8),
                   ),
                 ],
               ),
             ),
           ),
-          Text(amountOfFiles)
+          Text(amountOfFiles, style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 8,fontWeight: FontWeight.bold),)
         ],
       ),
     );

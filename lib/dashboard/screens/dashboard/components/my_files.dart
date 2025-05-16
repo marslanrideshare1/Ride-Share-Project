@@ -24,6 +24,7 @@ class MyFiles extends StatelessWidget {
             ),
             ElevatedButton.icon(
               style: TextButton.styleFrom(
+                overlayColor: Theme.of(context).colorScheme.onPrimaryContainer,
                 padding: EdgeInsets.symmetric(
                   horizontal: defaultPadding * 1.5,
                   vertical:
@@ -31,8 +32,8 @@ class MyFiles extends StatelessWidget {
                 ),
               ),
               onPressed: () {},
-              icon: Icon(Icons.add),
-              label: Text("Add New"),
+              icon: Icon(Icons.add, color: Colors.amber,),
+              label: Text("Add New", style: TextStyle(color: Colors.amber),),
             ),
           ],
         ),

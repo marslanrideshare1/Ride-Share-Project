@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:ride_share/local/local_storage.dart';
 import 'package:ride_share/ride_share/auth/sign_in/sign_in_view.dart';
 
-class DevMainView extends StatelessWidget {
-  const DevMainView({super.key});
+class DeveloperPanel extends StatelessWidget {
+  const DeveloperPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
