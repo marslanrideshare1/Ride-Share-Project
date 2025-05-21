@@ -4,7 +4,7 @@ import 'package:ride_share/core/theme/components/rs_color.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double? width;
   final double? height;
   final Color? backgroundColor;
@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.text,
-    required this.onPressed,
+    this.onPressed,
     this.width,
     this.height,
     this.backgroundColor,

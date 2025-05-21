@@ -33,7 +33,7 @@ class _SignUpViewState extends State<SignUpView> {
   final TextEditingController panelController = TextEditingController();
   final TextEditingController vehicleNoController = TextEditingController();
   final TextEditingController vehicleChassisNoController =
-      TextEditingController();
+  TextEditingController();
 
   final FocusNode fullNameFocusNode = FocusNode();
   final FocusNode emailFocusNode = FocusNode();
@@ -47,24 +47,24 @@ class _SignUpViewState extends State<SignUpView> {
 
   final formKey = GlobalKey<FormState>();
   final SignUpValidateController validateController =
-      Get.put(SignUpValidateController());
+  Get.put(SignUpValidateController());
   final SignUpController signUpController = Get.put(SignUpController());
 
   DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
-        value: item,
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.purple[100],
-              child: Text(item.length.toString()),
-            ),
-            Text(
-              item,
-              style: Theme.of(context).textTheme.bodyLarge,
-            )
-          ],
+    value: item,
+    child: Row(
+      children: [
+        CircleAvatar(
+          backgroundColor: Colors.purple[100],
+          child: Text(item.length.toString()),
         ),
-      );
+        Text(
+          item,
+          style: Theme.of(context).textTheme.bodyLarge,
+        )
+      ],
+    ),
+  );
   @override
   void initState() {
     super.initState();
@@ -168,7 +168,7 @@ class _SignUpViewState extends State<SignUpView> {
                       colors: [RsColor.primaryFirst, RsColor.primarySecond],
                     ),
                     Obx(
-                      () => CustomTextFormField(
+                          () => CustomTextFormField(
                         controller: fullNameController,
                         focusNode: fullNameFocusNode,
                         autofocus: true,
@@ -187,14 +187,14 @@ class _SignUpViewState extends State<SignUpView> {
                             validateController.clearError("userNameValidate"),
                         // validator: (value) => validateController.setValidateUserName(value.toString()),
                         errorText:
-                            validateController.userNameValidate.value.isEmpty
-                                ? null
-                                : validateController.userNameValidate.value
-                                    .toString(),
+                        validateController.userNameValidate.value.isEmpty
+                            ? null
+                            : validateController.userNameValidate.value
+                            .toString(),
                       ),
                     ),
                     Obx(
-                      () => CustomTextFormField(
+                          () => CustomTextFormField(
                           controller: emailController,
                           focusNode: emailFocusNode,
                           keyboardType: TextInputType.emailAddress,
@@ -211,13 +211,13 @@ class _SignUpViewState extends State<SignUpView> {
                               validateController.clearError("emailValidate"),
                           // validator: (value) => validateController.setValidateEmail(value.toString()),
                           errorText:
-                              validateController.emailValidate.value.isEmpty
-                                  ? null
-                                  : validateController.emailValidate.value
-                                      .toString()),
+                          validateController.emailValidate.value.isEmpty
+                              ? null
+                              : validateController.emailValidate.value
+                              .toString()),
                     ),
                     Obx(
-                      () => CustomTextFormField(
+                          () => CustomTextFormField(
                           controller: passwordController,
                           focusNode: passwordFocusNode,
                           keyboardType: TextInputType.text,
@@ -226,22 +226,22 @@ class _SignUpViewState extends State<SignUpView> {
                           mouseCursor: SystemMouseCursors.zoomOut,
                           obscureText: signUpController.isPasswordVisibleForRegister.value,
                           suffix: ShaderMask(
-                              shaderCallback: (Rect bounds) {
-                                return LinearGradient(
-                                  colors: [
-                                    RsColor.primarySecond,
-                                    RsColor.primarySecond
-                                  ],
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                ).createShader(bounds);
+                            shaderCallback: (Rect bounds) {
+                              return LinearGradient(
+                                colors: [
+                                  RsColor.primarySecond,
+                                  RsColor.primarySecond
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ).createShader(bounds);
+                            },
+                            child: GestureDetector(
+                              onTap: (){
+                                signUpController.isPasswordVisibleForRegister.toggle();
                               },
-                              child: GestureDetector(
-                                onTap: (){
-                                  signUpController.isPasswordVisibleForRegister.toggle();
-                                },
-                                child: Icon(signUpController.isPasswordVisibleForRegister.value ? Icons.visibility_off : Icons.visibility, color: Colors.white,size: 24,),
-                              ),
+                              child: Icon(signUpController.isPasswordVisibleForRegister.value ? Icons.visibility_off : Icons.visibility, color: Colors.white,size: 24,),
+                            ),
                           ),
                           onFieldSubmitted: (value) {
                             Common.changeFocusOfField(
@@ -253,12 +253,12 @@ class _SignUpViewState extends State<SignUpView> {
                               validateController.clearError("passwordValidate"),
                           // validator: (value) => validateController.setValidatePassword(value.toString()),
                           errorText: validateController
-                                  .passwordValidate.value.isEmpty
+                              .passwordValidate.value.isEmpty
                               ? null
                               : validateController.passwordValidate.toString()),
                     ),
                     Obx(
-                      () => CustomTextFormField(
+                          () => CustomTextFormField(
                         controller: idCardNoController,
                         focusNode: idCardNoFocusNode,
                         keyboardType: TextInputType.text,
@@ -275,15 +275,11 @@ class _SignUpViewState extends State<SignUpView> {
                         onEditingComplete: () =>
                             validateController.clearError("idCardNoValidate"),
                         // validator: (value) => validateController.setValidateCNIC(value.toString()),
-                        errorText:
-                            validateController.idCardNoValidate.value.isEmpty
-                                ? null
-                                : validateController.idCardNoValidate.value
-                                    .toString(),
+                        errorText: validateController.idCardNoValidate.value.isEmpty ? null : validateController.idCardNoValidate.value.toString(),
                       ),
                     ),
                     Obx(
-                      () => CustomTextFormField(
+                          () => CustomTextFormField(
                         controller: phoneNoController,
                         focusNode: phoneNoFocusNode,
                         keyboardType: TextInputType.text,
@@ -305,14 +301,14 @@ class _SignUpViewState extends State<SignUpView> {
                         //  validateController.setValidatePhoneNumber(value.toString());
                         // },
                         errorText:
-                            validateController.phoneNoValidate.value.isEmpty
-                                ? null
-                                : validateController.phoneNoValidate.value
-                                    .toString(),
+                        validateController.phoneNoValidate.value.isEmpty
+                            ? null
+                            : validateController.phoneNoValidate.value
+                            .toString(),
                       ),
                     ),
                     Obx(
-                      () => CustomTextFormField(
+                          () => CustomTextFormField(
                           controller: addressController,
                           focusNode: addressFocusNode,
                           keyboardType: TextInputType.text,
@@ -349,10 +345,10 @@ class _SignUpViewState extends State<SignUpView> {
                               validateController.clearError("addressValidate"),
                           // validator: (value) => validateController.setValidateAddress(value.toString()),
                           errorText:
-                              validateController.addressValidate.value.isEmpty
-                                  ? null
-                                  : validateController.addressValidate.value
-                                      .toString()),
+                          validateController.addressValidate.value.isEmpty
+                              ? null
+                              : validateController.addressValidate.value
+                              .toString()),
                     ),
                     Obx(() => CustomTextFormField(
                         controller: panelController,
@@ -394,12 +390,12 @@ class _SignUpViewState extends State<SignUpView> {
                             validateController.clearError("panelValidate"),
                         // validator: (value) => validateController.setValidateUserStatus(value.toString()),
                         errorText:
-                            validateController.panelValidate.value.isEmpty
-                                ? null
-                                : validateController.panelValidate.value
-                                    .toString())),
+                        validateController.panelValidate.value.isEmpty
+                            ? null
+                            : validateController.panelValidate.value
+                            .toString())),
                     Obx(
-                      () => Visibility(
+                          () => Visibility(
                         visible: panelController.text == "Driver",
                         child: CustomTextFormField(
                           controller: vehicleNoController,
@@ -435,59 +431,59 @@ class _SignUpViewState extends State<SignUpView> {
                               .clearError("vehicleNoValidate"),
                           // validator: (value) => validateController.setValidateVehicleNumber(value.toString()),
                           errorText:
-                              validateController.vehicleNoValidate.value.isEmpty
-                                  ? null
-                                  : validateController.vehicleNoValidate.value
-                                      .toString(),
+                          validateController.vehicleNoValidate.value.isEmpty
+                              ? null
+                              : validateController.vehicleNoValidate.value
+                              .toString(),
                         ),
                       ),
                     ),
                     Obx(() => Visibility(
-                          visible: panelController.text == "Driver",
-                          child: CustomTextFormField(
-                            controller: vehicleChassisNoController,
-                            focusNode: vehicleChassisNoFocusNode,
-                            keyboardType: TextInputType.text,
-                            hintText: "Please! enter vehicle chassis number...",
-                            hintFadeDuration: Duration(seconds: 2),
-                            mouseCursor: SystemMouseCursors.zoomOut,
-                            suffix: ShaderMask(
-                                shaderCallback: (Rect bounds) {
-                                  return LinearGradient(
-                                    colors: [
-                                      RsColor.primaryFirst,
-                                      RsColor.primarySecond.withOpacity(0.6)
-                                    ],
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ).createShader(bounds);
-                                },
-                                child: Image.asset(
-                                  "assets/images/vehicle.png",
-                                  width: 24.0,
-                                  height: 24.0,
-                                  color: Colors.white,
-                                )),
-                            onFieldSubmitted: (value) {
-                              Common.changeFocusOfField(
-                                  context, vehicleChassisNoFocusNode, null);
+                      visible: panelController.text == "Driver",
+                      child: CustomTextFormField(
+                        controller: vehicleChassisNoController,
+                        focusNode: vehicleChassisNoFocusNode,
+                        keyboardType: TextInputType.text,
+                        hintText: "Please! enter vehicle chassis number...",
+                        hintFadeDuration: Duration(seconds: 2),
+                        mouseCursor: SystemMouseCursors.zoomOut,
+                        suffix: ShaderMask(
+                            shaderCallback: (Rect bounds) {
+                              return LinearGradient(
+                                colors: [
+                                  RsColor.primaryFirst,
+                                  RsColor.primarySecond.withOpacity(0.6)
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ).createShader(bounds);
                             },
-                            onChanged: (value) => validateController
-                                .setValidateChassisNumber(value),
-                            onEditingComplete: () => validateController
-                                .clearError("vehicleChassisNoValidate"),
-                            validator: (value) => validateController
-                                .setValidateChassisNumber(value.toString()),
-                            errorText: validateController
-                                    .vehicleChassisNoValidate.value.isEmpty
-                                ? null
-                                : validateController
-                                    .vehicleChassisNoValidate.value
-                                    .toString(),
-                          ),
-                        )),
+                            child: Image.asset(
+                              "assets/images/vehicle.png",
+                              width: 24.0,
+                              height: 24.0,
+                              color: Colors.white,
+                            )),
+                        onFieldSubmitted: (value) {
+                          Common.changeFocusOfField(
+                              context, vehicleChassisNoFocusNode, null);
+                        },
+                        onChanged: (value) => validateController
+                            .setValidateChassisNumber(value),
+                        onEditingComplete: () => validateController
+                            .clearError("vehicleChassisNoValidate"),
+                        validator: (value) => validateController
+                            .setValidateChassisNumber(value.toString()),
+                        errorText: validateController
+                            .vehicleChassisNoValidate.value.isEmpty
+                            ? null
+                            : validateController
+                            .vehicleChassisNoValidate.value
+                            .toString(),
+                      ),
+                    )),
                     Obx(
-                      () => CustomButton(
+                          () => CustomButton(
                         fullWidth: true,
                         text: "Register",
                         isLoading: signUpController.isLoading,
@@ -496,42 +492,42 @@ class _SignUpViewState extends State<SignUpView> {
                           final userName = fullNameController.text.toString();
                           final userEmail = emailController.text.toString();
                           final userPassword =
-                              passwordController.text.toString();
+                          passwordController.text.toString();
                           final userIdCardNo =
-                              idCardNoController.text.toString();
+                          idCardNoController.text.toString();
                           final userPhone = phoneNoController.text.toString();
                           final userRole = panelController.text.toString();
                           final driverVehicleNo =
-                              vehicleNoController.text.toString();
+                          vehicleNoController.text.toString();
                           final driverVehicleChassisNo =
-                              vehicleChassisNoController.text.toString();
+                          vehicleChassisNoController.text.toString();
                           final userAddress = addressController.text.toString();
                           try {
                             log("try");
                             if (validateController
-                                        .setValidateUserName(userName) ==
+                                .setValidateUserName(userName) ==
+                                null &&
+                                validateController
+                                    .setValidateEmail(userEmail) ==
                                     null &&
                                 validateController
-                                        .setValidateEmail(userEmail) ==
+                                    .setValidatePassword(userPassword) ==
                                     null &&
                                 validateController
-                                        .setValidatePassword(userPassword) ==
+                                    .setValidateCNIC(userIdCardNo) ==
                                     null &&
                                 validateController
-                                        .setValidateCNIC(userIdCardNo) ==
+                                    .setValidatePhoneNumber(userPhone) ==
                                     null &&
                                 validateController
-                                        .setValidatePhoneNumber(userPhone) ==
-                                    null &&
-                                validateController
-                                        .setValidateAddress(userAddress) ==
+                                    .setValidateAddress(userAddress) ==
                                     null) {
                               if (panelController.text == "Driver") {
                                 if (validateController.setValidateVehicleNumber(
-                                            driverVehicleNo) !=
-                                        null ||
+                                    driverVehicleNo) !=
+                                    null ||
                                     validateController.setValidateChassisNumber(
-                                            driverVehicleChassisNo) !=
+                                        driverVehicleChassisNo) !=
                                         null) {
                                   return;
                                 }
@@ -586,9 +582,9 @@ class _SignUpViewState extends State<SignUpView> {
                     Common.customRichText(context,
                         title: "Already have an account? ",
                         subTitle: "Sign in", onTap: () {
-                      log("Sign up");
-                      Get.to(SignInView());
-                    }),
+                          log("Sign up");
+                          Get.to(SignInView());
+                        }),
                     SizedBox(height: 200)
                   ],
                 ),

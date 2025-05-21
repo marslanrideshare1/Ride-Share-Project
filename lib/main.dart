@@ -7,6 +7,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:ride_share/core/theme/components/rs_color.dart';
 import 'package:ride_share/dashboard/screens/dashboard/profile/profile_view.dart';
 import 'package:ride_share/dummy.dart';
+import 'package:ride_share/ride_share/auth/dev_sign_up/dev_sign_up_view.dart';
 import 'package:ride_share/ride_share/auth/sign_in/components/forget_password_view.dart';
 import 'package:ride_share/ride_share/auth/sign_in/sign_in_view.dart';
 import 'package:ride_share/ride_share/auth/sign_up/sign_up_view.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: RsTheme.rideShareLightTheme,
       darkTheme: RsTheme.rideShareDarkTheme,
-      home: ProfileView(),
+      home: SplashView(),
     );
   }
 }

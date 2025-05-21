@@ -487,7 +487,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ? Theme.of(context).scaffoldBackgroundColor
                 : Theme.of(context).colorScheme.onPrimaryContainer),
         child: GNav(
-            rippleColor: Colors.teal, // tab button ripple color when pressed
+            // rippleColor: Colors.teal, // tab button ripple color when pressed
             // hoverColor: Colors.pink, // tab button hover color
             onTabChange: (index) {
               profileViewController.changeTab(index);
@@ -533,16 +533,19 @@ class _ProfileViewState extends State<ProfileView> {
               GButton(
                 icon: Icons.post_add_sharp,
                 text: 'Post',
+                haptic: true,
                 backgroundColor: Colors.transparent,
               ),
               GButton(
                 icon: Icons.book,
                 text: 'Booking',
+                haptic: true,
                 backgroundColor: Colors.transparent,
               ),
               GButton(
                 icon: Icons.search_outlined,
                 text: 'Search',
+                haptic: true,
                 backgroundColor: Colors.transparent,
               ),
             ]),

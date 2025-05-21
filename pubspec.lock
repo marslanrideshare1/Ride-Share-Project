@@ -145,6 +145,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  curve_clipper:
+    dependency: "direct main"
+    description:
+      name: curve_clipper
+      sha256: "95ded9130de20be5e4732f7c4742bfe6b08ac58cb6bbc335119acc69b996efde"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   device_frame:
     dependency: transitive
     description:
@@ -762,6 +770,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  typewrite_text:
+    dependency: "direct main"
+    description:
+      name: typewrite_text
+      sha256: "8c18f9f5d9d8a98e20ac5b433a4a804af509b6d0d1d4f3df7a69eeda44ea5042"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   uuid:
     dependency: transitive
     description:
