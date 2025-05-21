@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ride_share/dashboard/controllers/recent_file_controller.dart';
 import 'package:ride_share/dashboard/screens/dashboard/profile/profile_screen.dart';
+import 'package:ride_share/dashboard/screens/dashboard/profile/profile_view.dart';
 import 'package:ride_share/ride_share/auth/user/user_model.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../constants.dart';
@@ -75,7 +76,7 @@ class _RecentFilesState extends State<RecentFiles> {
                   recentFileController.totalUsers.length,
                       (index) => DataRow(
                         onLongPress: (){
-                          Get.to(ProfileScreen());
+                          Get.to(ProfileView());
                         },
                         cells: [
                           DataCell(

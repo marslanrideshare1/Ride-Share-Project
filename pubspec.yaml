@@ -47,6 +47,8 @@ dependencies:
   shimmer:
   contained_tab_bar_view: ^0.8.0
   sticky_headers: "^0.3.0"
+  google_nav_bar: ^5.0.7
+  flutter_staggered_grid_view: ^0.7.0
   # dashboard
   google_fonts:
   fl_chart:

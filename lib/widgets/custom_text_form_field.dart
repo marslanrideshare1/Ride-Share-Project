@@ -63,7 +63,7 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.mouseCursor,
     this.filled = true,
-    this.fillColor ,
+    this.fillColor,
     this.icon,
     this.suffix,
     this.iconColor,
@@ -74,7 +74,8 @@ class CustomTextFormField extends StatelessWidget {
     this.hintFadeDuration,
     // this.error,
     this.errorText,
-    this.contentPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+    this.contentPadding =
+        const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
     this.suffixIcon,
     this.onTap,
     this.onChanged,
@@ -82,7 +83,6 @@ class CustomTextFormField extends StatelessWidget {
     this.onTapOutside,
     this.onFieldSubmitted,
     this.onEditingComplete,
-
   });
 
   @override
@@ -92,9 +92,14 @@ class CustomTextFormField extends StatelessWidget {
       focusNode: focusNode,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
-      style: style ?? Theme.of(context).textTheme.bodyMedium, // This is default regular text.
-      strutStyle: strutStyle,// This use for text align, bold, italic, vertical align etc.
-      textDirection: textDirection, // This use to text direction left or right side.
+      style: style ??
+          Theme.of(context)
+              .textTheme
+              .bodyMedium, // This is default regular text.
+      strutStyle:
+          strutStyle, // This use for text align, bold, italic, vertical align etc.
+      textDirection:
+          textDirection, // This use to text direction left or right side.
       textAlign: textAlign ?? TextAlign.start,
       textAlignVertical: textAlignVertical,
       autofocus: autofocus ?? true,
@@ -111,41 +116,50 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: fillColor ?? RsColor.primaryFirst.withOpacity(0.15),
         icon: icon, // This is left side show icon separate some gap between.
         iconColor: iconColor, // This is left side icon color.a
-        helper: helper, // I want to show horizontal container of error, warring, success when user type text then it will observe user text and show according to color like error color red.
+        helper:
+            helper, // I want to show horizontal container of error, warring, success when user type text then it will observe user text and show according to color like error color red.
         hintText: hintText,
-        hintStyle: hintStyle ?? Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+        hintStyle: hintStyle ??
+            Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(fontWeight: FontWeight.bold),
         hintFadeDuration: hintFadeDuration,
         enabled: enabled ?? false,
         // error: error, // This property will take place of "Helper Widget".
         errorText: errorText,
-        contentPadding: contentPadding, 
-        suffixIcon: suffix ?? ShaderMask(
-          shaderCallback: (Rect bounds) {
-            return LinearGradient(
-              colors: [RsColor.primaryFirst, RsColor.primarySecond],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ).createShader(bounds);
-          },
-          child: Icon(
-            suffixIcon ?? Icons.email,
-            size: 24,
-            color: Colors.white, // This will be masked by the gradient
-          ),
-        ),
+        contentPadding: contentPadding,
+        suffixIcon: suffix ??
+            ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return LinearGradient(
+                  colors: [RsColor.primaryFirst, RsColor.primarySecond],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ).createShader(bounds);
+              },
+              child: Icon(
+                suffixIcon ?? Icons.email,
+                size: 24,
+                color: Colors.white, // This will be masked by the gradient
+              ),
+            ),
 
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: RsColor.trans,  width: 0.3),
+          borderSide: BorderSide(color: RsColor.trans, width: 0.3),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: RsColor.trans,  width: 0.3),
+          borderSide: BorderSide(color: RsColor.trans, width: 0.3),
         ),
 
-        focusedBorder:CustomGradientBorder(
+        focusedBorder: CustomGradientBorder(
           gradient: LinearGradient(
-            colors: [RsColor.primaryFirst.withOpacity(0.8), RsColor.primarySecond.withOpacity(0.6)],
+            colors: [
+              RsColor.primaryFirst.withOpacity(0.8),
+              RsColor.primarySecond.withOpacity(0.6)
+            ],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
@@ -153,20 +167,13 @@ class CustomTextFormField extends StatelessWidget {
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(
-              color: RsColor.redMain,
-              width: 1
-          ),
+          borderSide: BorderSide(color: RsColor.redMain, width: 1),
         ),
 
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(
-              color: RsColor.redMain,
-            width: 1
-          ),
+          borderSide: BorderSide(color: RsColor.redMain, width: 1),
         ),
-
       ),
       onTap: onTap,
       onChanged: onChanged,
